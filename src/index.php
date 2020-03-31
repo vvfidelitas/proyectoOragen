@@ -1,5 +1,6 @@
-//por aqui se re elige a una vista 
+
 <?php
 
+header("Location: ./src/views/inicio.html");
 
 ?>

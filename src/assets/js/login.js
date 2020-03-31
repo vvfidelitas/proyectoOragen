@@ -7,17 +7,17 @@ var request = new XMLHttpRequest();
 
 //peticion al BD//
 
-request.open("GET", "login.php?username="+usuario,true); 
+request.open("POST", "../../code/login.php",true); 
 
 
-request.send(null); 
+request.send("username="+usuario); 
 
 request.onreadystatechange = function(){ 
 	if(request.readyState == 4 && request.status == 200){ 
 		if (request.responseText != "") {
 			var data = JSON.parse(request.responseText);
 			for(var usuario in data){
-				if(pass==data[usuario].CONTRA){
+				if(pass==data[usuario].password){
 					window.location.href="index.html";
 				}else{
 					alert("Usuario o contraseña incorrecto");
@@ -35,11 +35,11 @@ function usuario(){
 var request = new XMLHttpRequest(); 
 
 //peticion al BD//
+request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+request.open("POST", "../../code/login.php",true); 
 
-request.open("GET", "usuario.php",true); 
 
-
-request.send(null); 
+request.send("usser="+usuario+"&passw="+passw); 
 
 request.onreadystatechange = function(){ 
 	if(request.readyState == 4 && request.status == 200){ 
@@ -72,10 +72,11 @@ var request = new XMLHttpRequest();
 
 //peticion al BD//
 
-request.open("GET","login.php?username="+usuario+"&contrasenita="+pass+"&nom="+nom+"&correo="+correo,true); 
+request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+request.open("POST","../../code/login.php",true); 
 
 
-request.send(null); 
+request.send("username="+usuario+"&usuario="+pass+"&name="+nom+"&password="+contrasena); 
 
 request.onreadystatechange = function(){ 
 	if(request.readyState == 4 && request.status == 200){ 
