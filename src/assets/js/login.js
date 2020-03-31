@@ -1,7 +1,7 @@
-function validar(){ 
+function ingresar(){ 
 
-var usuario = document.getElementById("username").value; 
-var pass = document.getElementById("password").value; 
+var usuario = document.getElementById("usser").value; 
+var pass = document.getElementById("passw").value; 
 
 var request = new XMLHttpRequest(); 
 
@@ -17,8 +17,8 @@ request.onreadystatechange = function(){
 		if (request.responseText != "") {
 			var data = JSON.parse(request.responseText);
 			for(var usuario in data){
-				if(pass==data[usuario].password){
-					window.location.href="index.html";
+				if(pass==data[usuario].passw){
+					window.location.href="lohin.html";
 				}else{
 					alert("Usuario o contraseña incorrecto");
 				}
@@ -63,9 +63,9 @@ request.onreadystatechange = function(){
 
 function registro(){ 
 
-var usuario = document.getElementById("username").value; 
-var nom = document.getElementById("name").value;
-var pass = document.getElementById("password").value; 
+var usuario = document.getElementById("nomUsser").value; 
+var nom = document.getElementById("nombreUsuario").value;
+var pass = document.getElementById("passwUsser").value; 
  
 
 var request = new XMLHttpRequest(); 
