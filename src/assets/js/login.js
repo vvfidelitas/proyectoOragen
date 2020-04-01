@@ -7,29 +7,22 @@ var request = new XMLHttpRequest();
 
 //peticion al BD//
 
-request.open("POST", "../../code/login.php",true); 
-
-
-request.send("username="+usuario); 
+request.open("POST","../code/login.php?username="+usuario+"&password="+pass,true); 
+request.send(); 
 
 request.onreadystatechange = function(){ 
 	if(request.readyState == 4 && request.status == 200){ 
-		if (request.responseText != "") {
-			var data = JSON.parse(request.responseText);
-			for(var usuario in data){
-				if(pass==data[usuario].passw){
-					window.location.href="lohin.html";
-				}else{
-					alert("Usuario o contraseña incorrecto");
-				}
-			}
+		if (request.responseText != "0") {
+				window.location.href="inicio.html";
 		}else{
-		}
+				alert("Usuario o contraseña incorrecto");
+			}
+		
 	}else{
 	}
+   }
 }
 
-}
 
 function usuario(){
 var request = new XMLHttpRequest(); 
@@ -61,28 +54,28 @@ request.onreadystatechange = function(){
 }
 }
 
-function registro(){ 
+function registrar(){ 
 
-var usuario = document.getElementById("nomUsser").value; 
-var nom = document.getElementById("nombreUsuario").value;
-var pass = document.getElementById("passwUsser").value; 
+var usuario = document.getElementById("username").value; 
+var nom = document.getElementById("nombre").value;
+var pass = document.getElementById("pass").value; 
  
 
 var request = new XMLHttpRequest(); 
 
 //peticion al BD//
 
-request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-request.open("POST","../../code/login.php",true); 
+request.open("POST","../code/registrar.php?username="+usuario+"&usuario="+nom+"&password="+pass,true);
+request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); 
 
 
-request.send("username="+usuario+"&usuario="+pass+"&name="+nom+"&password="+contrasena); 
+request.send(); 
 
 request.onreadystatechange = function(){ 
 	if(request.readyState == 4 && request.status == 200){ 
 		alert(request.responseText);
-		if (request.responseText != "") {
-				window.location.href="login.html";
+		if (request.responseText != "0") {
+				window.location.href="inicio.html";
 			}else{
 				alert("No Registrado");
 			}

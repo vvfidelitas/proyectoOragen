@@ -1,6 +1,6 @@
 <?php 
-
 $username = $_GET["username"];
+$usuario = $_GET["usuario"];
 $clave = $_GET["password"]; 
 
 session_start();
@@ -14,14 +14,12 @@ if(!$cnxn){
 	error_reporting(E_ERROR | E_PARSE);
 	mysqli_set_charset($cnxn, "utf8");
 	//Cortesía Monge Solís
-	$sql = "SELECT * FROM tbusuarios WHERE nombUsuario = '$username' AND contrasena = '$clave'"; 
+	$sql = "INSERT INTO tbusuarios(nombUsuario,nombreCliente,contrasena) VALUES('$username','$usuario','$clave')"; 
 
-	$respuesta = mysqli_query($cnxn, $sql);
-	if(mysqli_num_rows($respuesta) > 0){
+	if(mysqli_query($cnxn, $sql)){
 		echo "1";
 	}else{
 		echo "0";
 	}
 }
-
 ?>

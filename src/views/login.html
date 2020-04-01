@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/diseno.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="../assets/js/login.js"></script>
     <link rel="shortcut icon" href="https://1.bp.blogspot.com/-V7R9_de9UuQ/Xl27Yi0mGTI/AAAAAAAALoc/6wRB8obHuQQSzx0i6V5aVa59wQlOggglACEwYBhgL/s640/icono.png" type="image/x-icon">
 
 
@@ -33,13 +33,16 @@
              <p >Crea una cuenta</p> 
 
             <label id= "nomUsser" for="username"> Nombre de usuario: </label><br>
+            <input type="text" id="username" name="username"><br>
+
+            <label id= "nombreUsuario" for="nombre">Nombre completo:</label><br>
             <input type="text" id="nombre" name="nombre"><br>
-            <label id= "nombreUsuario" for="name">Nombre completo:</label><br>
-            <input type="email" id="mail" name="user_mail"><br>
-            <label id= "passwUsser"for="password"> Contraseña:</label><br>
-            <input type="password"><br>
-             <br> 
-              <input type= "button" value="Registrarse" id="input-item" onclick="registro()">
+
+            <label id= "passwUsser"for="pass"> Contraseña:</label><br>
+            <input type="password" id="pass"><br>
+            
+            <br> 
+            <input type= "button" value="Registrarse" id="input-item" onclick="registrar()">
             
           
     </div>
